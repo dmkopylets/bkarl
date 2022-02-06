@@ -1,8 +1,9 @@
 /~logs/
 ###> symfony/framework-bundle ###
-/.env.local
-/.env.local.php
+/.env
 /.env.*.local
+.gitignore
+/.gitignore
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
 /var/
@@ -13,3 +14,5 @@
 .phpunit.result.cache
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
+Makefile
+/docker/
