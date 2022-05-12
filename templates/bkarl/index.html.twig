@@ -1,6 +1,12 @@
 {% extends "base.html.twig" %}
+
+{% block title 'Home' %}
    
 {% block body %}
-<h1>Привіт</h1>   
-   {{a}}  
+   <div class="flex items-center justify-center min-h-screen">
+      <h2 class="text-center text-5xl font-semibold text-indigo-500">
+        Symfony <span class="text-red-500">&hearts;</span> Tailwind</h2>   
+        {{a}}     
+   </div>
+
 {% endblock %}  
