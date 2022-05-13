@@ -1,0 +1,32 @@
+{
+  "name": "bkarl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "tailwindcss build src/styles.css -o public/css/styles.css"
+  },
+  "keywords": [],
+  "author": "Uncle Dima",
+  "license": "ISC",
+  "dependencies": {
+    "@tailwindcss/forms": "^0.3.4",
+    "tailwindcss": "^2.2.19"
+  },
+  "devDependencies": {
+    "@symfony/webpack-encore": "^1.6.1",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.4"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmkopylets/bkarl.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dmkopylets/bkarl/issues"
+  },
+  "homepage": "https://github.com/dmkopylets/bkarl#readme"
+}

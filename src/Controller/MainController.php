@@ -9,9 +9,9 @@ class MainController extends AbstractController
     /**
      * @Route("/", name="home_page")
      */
-    public function indexAction()
+    public function index()
     {
-       return $this->render('bkarl/index.html.twig',['a' => 458786767]);
+       return $this->render('bkarl/home.html.twig',['a' => 458786767]);
     }
 }
 
