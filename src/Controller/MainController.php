@@ -11,7 +11,7 @@ class MainController extends AbstractController
      */
     public function index()
     {
-       return $this->render('bkarl/home.html.twig',['a' => 458786767]);
+       return $this->render('welcome.html.twig',['a' => 458786767]);
     }
 }
 
