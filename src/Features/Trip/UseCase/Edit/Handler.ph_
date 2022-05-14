@@ -1,0 +1,48 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Features\Trip\UseCase\Edit;
+
+use App\Features\Trip\Service\TripService;
+use App\Entity\Trip;
+use App\Application\Http\Validation\ValidationCheckerTrait;
+use PHPUnit\Util\Exception;
+
+
+class Handler
+{
+    use ValidationCheckerTrait;
+
+    public function __construct(public TripService         $tripService,
+                                public FileManager         $fileManager,
+                                public S3Manager           $s3Manager,
+                                public PhoneConfirmService $phoneConfirmService)
+    {
+    }
+
+    public function handle(Command $command): Trip
+    {
+        $trip = $this->tripService->getByPhone($command->phone);
+
+        $trip->setFirstName($command->firstName);
+
+        $trip->setLastName($command->lastName);
+
+        $trip->setDescription($command->description);
+
+        $trip->setCar($command->car);
+
+        if (!$this->tripService->isNotUniquePhone($command->changePhone)) {
+            $trip->setChangedPhone($command->changePhone);
+
+
+        } elseif($command->phone != $command->changePhone) {
+            throw new Exception('This Phone Number is already in use');
+        }
+
+        $this->validate($trip);
+        $this->tripService->save($trip);
+        return $trip;
+    }
+}

@@ -1,0 +1,32 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Features\Trip\UseCase\CreateProfile;
+
+use App\Application\Http\Validation\ValidationCheckerTrait;
+use App\Features\Trip\Service\TripService;
+use App\Entity\Trip;
+
+class Handler
+{
+    use ValidationCheckerTrait;
+
+    public function __construct(public TripService $tripService) {}
+
+    public function handle(Command $command): Trip
+    {
+        $trip = $this->tripService->getByPhone($command->phone);
+
+//        $user->setFirstName($command->firstName);
+//        $user->setLastName($command->lastName);
+//        $user->setDescription($command->description);
+//        $user->setCar($command->car);
+//        $user->setRoles(USER::ROLES['PASSANGER']);
+//        $this->validate($user);
+
+        $this->tripService->save($trip);
+
+        return $trip;
+    }
+}
