@@ -1,0 +1,32 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Controller\Api;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+use App\Features\Trip\Service\TripService;
+use OpenApi\Annotations as OA;
+use App\Application\Http\ApiResponse;
+
+
+/**
+ * @OA\Tag(name="FacilityTripFixtures")
+ */
+class TripController extends AbstractController
+{
+
+    public function __construct(public TripService $service){}
+
+    #[Route('/trip', name: 'trip', methods: ['POST'])]
+    public function signUpIn(RegisterLoginCommand $commandReg, RegisterLoginHandler $handlerReg,
+        PinGenerateCommand $commandPin, PinGenerateHandler $handlerPin ): Response
+    {
+        $user = $handlerReg->handle($commandReg);
+        $handlerPin->handle($commandPin);
+
+        return ApiResponse::successful('', $trip);
+    }
+}
