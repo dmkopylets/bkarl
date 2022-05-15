@@ -1,0 +1,52 @@
+security:
+    # https://symfony.com/doc/current/security/experimental_authenticators.html
+    enable_authenticator_manager: true
+    password_hashers:
+        App\Entity\User\User:
+            algorithm: auto
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        # used to reload user from session & other features (e.g. switch_user)
+        app_user_provider:
+            entity:
+                class: App\Entity\User\User
+                property: phone
+        # used to reload user from session & other features (e.g. switch_user)
+        # used to reload user from session & other features (e.g. switch_user)
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        login:
+            pattern: ^/api/user/login
+            stateless: true
+            form_login:
+                check_path: /api/user/login
+                username_parameter: username
+                password_parameter: password
+                success_handler: lexik_jwt_authentication.handler.authentication_success
+                failure_handler: lexik_jwt_authentication.handler.authentication_failure
+        refresh:
+            pattern: ^/api/user/token/refresh
+            stateless: true
+        api:
+            pattern: ^/api
+            stateless: true
+            jwt: ~
+
+    access_control:
+        - { path: ^/api/user/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/admin/template/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/admin/form/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/form/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/user/registration, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/auth/setup, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/user/approve/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/auth/phone/approve, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/auth/phone/resend, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/user/token/refresh, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/facility/confirm, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api/edit/phone/approve, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api/user/editProfile, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api/facility/list, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api,       roles: IS_AUTHENTICATED_FULLY }

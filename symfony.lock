@@ -1,4 +1,10 @@
 {
+    "behat/transliterator": {
+        "version": "v1.5.0"
+    },
+    "brick/math": {
+        "version": "0.9.3"
+    },
     "composer/package-versions-deprecated": {
         "version": "1.11.99.4"
     },
@@ -21,6 +27,9 @@
     "doctrine/common": {
         "version": "3.2.0"
     },
+    "doctrine/data-fixtures": {
+        "version": "1.5.3"
+    },
     "doctrine/dbal": {
         "version": "3.2.0"
     },
@@ -39,6 +48,18 @@
             "config/packages/doctrine.yaml",
             "src/Entity/.gitignore",
             "src/Repository/.gitignore"
+        ]
+    },
+    "doctrine/doctrine-fixtures-bundle": {
+        "version": "3.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "3.0",
+            "ref": "1f5514cfa15b947298df4d771e694e578d4c204d"
+        },
+        "files": [
+            "src/DataFixtures/AppFixtures.php"
         ]
     },
     "doctrine/doctrine-migrations-bundle": {
@@ -78,8 +99,33 @@
     "doctrine/sql-formatter": {
         "version": "1.1.2"
     },
+    "enqueue/dsn": {
+        "version": "0.10.8"
+    },
+    "enqueue/enqueue": {
+        "version": "0.10.16"
+    },
+    "enqueue/enqueue-bundle": {
+        "version": "0.10",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "0.9",
+            "ref": "c6ec89b63f963d10ad0d7a7bea170359c119c8bc"
+        },
+        "files": [
+            "config/packages/enqueue.yaml",
+            "config/packages/test/enqueue.yaml"
+        ]
+    },
+    "enqueue/null": {
+        "version": "0.10.15"
+    },
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.5"
+    },
+    "gedmo/doctrine-extensions": {
+        "version": "v3.1.0"
     },
     "gesdinet/jwt-refresh-token-bundle": {
         "version": "v1.1.1"
@@ -111,6 +157,9 @@
             "config/packages/lexik_jwt_authentication.yaml"
         ]
     },
+    "monolog/monolog": {
+        "version": "2.6.0"
+    },
     "namshi/jose": {
         "version": "7.2.3"
     },
@@ -141,6 +190,18 @@
     "psr/log": {
         "version": "1.1.4"
     },
+    "queue-interop/amqp-interop": {
+        "version": "0.8.2"
+    },
+    "queue-interop/queue-interop": {
+        "version": "0.8.1"
+    },
+    "ramsey/collection": {
+        "version": "1.2.2"
+    },
+    "ramsey/uuid": {
+        "version": "4.3.1"
+    },
     "sensio/framework-extra-bundle": {
         "version": "6.2",
         "recipe": {
@@ -155,6 +216,18 @@
     },
     "stella-maris/clock": {
         "version": "0.1.4"
+    },
+    "stof/doctrine-extensions-bundle": {
+        "version": "1.7",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "1.2",
+            "ref": "e805aba9eff5372e2d149a9ff56566769e22819d"
+        },
+        "files": [
+            "config/packages/stof_doctrine_extensions.yaml"
+        ]
     },
     "symfony/apache-pack": {
         "version": "1.0",
@@ -265,6 +338,33 @@
             "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
         }
     },
+    "symfony/messenger": {
+        "version": "6.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "6.0",
+            "ref": "2523f7d31488903e247a522e760dc279be7f7aaf"
+        },
+        "files": [
+            "config/packages/messenger.yaml"
+        ]
+    },
+    "symfony/monolog-bridge": {
+        "version": "v6.0.3"
+    },
+    "symfony/monolog-bundle": {
+        "version": "3.8",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "3.7",
+            "ref": "213676c4ec929f046dfde5ea8e97625b81bc0578"
+        },
+        "files": [
+            "config/packages/monolog.yaml"
+        ]
+    },
     "symfony/password-hasher": {
         "version": "v6.0.3"
     },
@@ -330,9 +430,9 @@
         "version": "6.0",
         "recipe": {
             "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "5.3",
-            "ref": "98f1f2b0d635908c2b40f3675da2d23b1a069d30"
+            "branch": "main",
+            "version": "6.0",
+            "ref": "8a5b112826f7d3d5b07027f93786ae11a1c7de48"
         },
         "files": [
             "config/packages/security.yaml"
