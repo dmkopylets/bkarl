@@ -20,7 +20,7 @@ use OpenApi\Annotations as OA;
 /**
  * @OA\Tag(name="Auth")
  **/
-#[Route('/auth', 'auth', 'auth.')]
+#[Route('/auth', name: 'auth')]
 class AuthController extends AbstractController
 {
     /**

@@ -9,7 +9,7 @@ use Gesdinet\JWTRefreshTokenBundle\EventListener\AttachRefreshTokenOnSuccessList
 class AttachRefreshTokenOnSuccessListener extends AttachRefreshTokenOnSuccessListenerBasr
 {
 
-    public function attachRefreshToken(AuthenticationSuccessEvent $event)
+    public function attachRefreshToken(AuthenticationSuccessEvent $event): void
     {
         parent::attachRefreshToken($event);
 

@@ -2,6 +2,8 @@ security:
     # https://symfony.com/doc/current/security/experimental_authenticators.html
     enable_authenticator_manager: true
     password_hashers:
+        # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
+        # Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
         App\Entity\User\User:
             algorithm: auto
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
@@ -36,8 +38,8 @@ security:
 
     access_control:
         - { path: ^/api/user/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/admin/template/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/admin/form/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+       # - { path: ^/api/admin/template/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+       # - { path: ^/api/admin/form/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/form/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/user/registration, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/auth/setup, roles: IS_AUTHENTICATED_ANONYMOUSLY }
